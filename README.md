@@ -2,13 +2,15 @@
 
 이 폴더는 파이썬 프로그래밍의 기초 개념을 익힐 수 있는 5가지 샘플 코드를 담고 있습니다.
 
-> **🚀 웹에서 바로 실행하기 팁!**
-> 아래 **[Open In Colab]** 배지를 클릭하면 구글 서버를 통해 웹 브라우저에서 즉시 코드를 실행해 볼 수 있습니다.
-> (현재 설정된 저장소: `licht0913/licht0913.github.io`)
-
 ## 사용 방법
 
-터미널에서 각 파일이 있는 폴더로 이동한 후, `python 파일명.py` 명령어로 실행하세요.
+### 방법 1: 웹에서 바로 실행하기 (추천)
+별도의 설치 없이 파일 목록에 있는 **[Open In Colab]** 버튼을 누르면 구글 서버에서 코드를 즉시 실행해 볼 수 있습니다.
+
+예시: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/)
+
+### 방법 2: 내 컴퓨터에서 실행하기
+파이썬이 설치된 환경이라면 터미널에서 `python 파일명.py` 명령어로 실행할 수 있습니다.
 
 ```bash
 cd python_basics
