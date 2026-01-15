@@ -17,7 +17,7 @@ python 01_input_print.py
 
 ## 파일 목록 및 설명
 
-### 1. [인사하는 프로그램 (01_input_print.py)](./01_input_print.py) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/licht0913/licht0913.github.io/blob/main/python_basics/01_input_print.py)
+### 1. [인사하는 프로그램 (01_input_print.py)](./01_input_print.py) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/licht0913/licht0913.github.io/blob/main/01_input_print.py)
 - **학습 개념**: `input()` (입력), `print()` (출력), 변수, f-string 포맷팅
 - **내용**: 사용자의 이름과 나이를 입력받아 환영 메시지를 출력합니다.
 
