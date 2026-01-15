@@ -32,3 +32,7 @@ python 01_input_print.py
 ### 5. [점심 메뉴 추천 (05_lunch_menu.py)](./05_lunch_menu.py)
 - **학습 개념**: 리스트(List), `import` (모듈 사용), `random`
 - **내용**: 리스트에 있는 메뉴 중 하나를 무작위로 골라 추천해줍니다.
+
+### 6. [자기 성적 확인하기 (06_check_score.py)](./06_check_score.py)
+- **학습 개념**: `Dictionary` (딕셔너리), `while` (무한 루프), `if-in`, 예외 처리(`try-except`)
+- **내용**: 학생 번호를 입력하면 미리 저장된 데이터에서 해당 번호의 과목별 점수와 평균 정보를 찾아 보여주는 검색 프로그램입니다.
