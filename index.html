@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>우리반 홈페이지 | Class 3-1</title>
+
+    <!-- 최적화: Google Fonts Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- 최적화: 폰트 웨이트 최소화 (꼭 필요한 400, 700만 로드) & display=swap으로 텍스트 먼저 표시 -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Poppins:wght@600;800&display=swap"
+        rel="stylesheet">
+
+    <!-- 최적화: 외부 아이콘 라이브러리(FontAwesome) 제거하고 SVG 직접 사용 (약 200KB 절약) -->
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- 최적화: 중요하지 않은 JS는 defer로 로딩 지연 -->
+    <script src="config.js" defer></script>
+    <script src="app.js" defer></script>
+</head>
+
+<body>
+    <div class="background-animation"></div>
+
+    <nav class="glass-nav">
+        <div class="logo">
+            <!-- SVG Icon: Graduation Cap -->
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                <path d="M6 12v5c3 3 9 3 12 0v-5" />
+            </svg>
+            <span>Class 3-1</span>
+        </div>
+        <ul class="nav-links">
+            <li class="active" data-target="home">홈</li>
+            <li data-target="gallery">갤러리</li>
+            <li data-target="community">커뮤니티</li>
+            <li data-target="signup" class="btn-signup">가입하기</li>
+        </ul>
+        <div class="mobile-menu-btn">
+            <!-- SVG Icon: Menu -->
+            <svg class="icon icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+        </div>
+    </nav>
+
+    <main id="app-container">
+        <!-- Home Section -->
+        <section id="home" class="page active">
+            <div class="hero-content">
+                <h1 class="animate-fade-up">우리들의 특별한<br><span class="highlight">추억 저장소</span></h1>
+                <p class="animate-fade-up delay-1">3학년 1반 친구들을 위한 공간입니다.<br>느린 인터넷에서도 빠르게 접속하세요.</p>
+                <div class="hero-btns animate-fade-up delay-2">
+                    <button class="btn primary" onclick="navigateTo('community')">이야기 나누기</button>
+                    <button class="btn secondary" onclick="navigateTo('gallery')">사진 보러가기</button>
+                </div>
+            </div>
+            <div class="hero-cards animate-fade-up delay-3">
+                <div class="glass-card float-card">
+                    <div class="card-icon-wrapper">
+                        <!-- SVG: Calendar -->
+                        <svg class="icon icon-xl" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                    </div>
+                    <h3>오늘의 급식</h3>
+                    <p>맛있는 점심 메뉴 확인</p>
+                </div>
+                <div class="glass-card float-card">
+                    <div class="card-icon-wrapper">
+                        <!-- SVG: Bell -->
+                        <svg class="icon icon-xl" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                        </svg>
+                    </div>
+                    <h3>알림장</h3>
+                    <p>숙제와 준비물 체크</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="page">
+            <div class="section-header">
+                <h2>학급 갤러리</h2>
+                <p>우리들의 즐거운 순간들</p>
+            </div>
+            <div class="gallery-grid" id="gallery-container">
+                <div class="gallery-loader">
+                    <div class="spinner"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community Section -->
+        <section id="community" class="page">
+            <div class="section-header">
+                <h2>커뮤니티</h2>
+                <button class="btn small icon-btn" onclick="openWriteModal()">
+                    <!-- SVG: Pen -->
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                    </svg>
+                    글쓰기
+                </button>
+            </div>
+            <div class="community-list glass-panel" id="community-container">
+                <div class="empty-state">
+                    <!-- SVG: Message Square -->
+                    <svg class="icon icon-xl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                    <p>게시글을 불러오는 중입니다...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Signup Section -->
+        <section id="signup" class="page">
+            <div class="signup-container glass-panel">
+                <h2>반가워요! 👋</h2>
+                <p class="limit-width">3학년 1반 친구라면 누구나 가입할 수 있어요.</p>
+                <form id="signup-form">
+                    <div class="input-group">
+                        <label>이름</label>
+                        <input type="text" placeholder="본명을 입력해주세요" required>
+                    </div>
+                    <div class="input-group">
+                        <label>학번</label>
+                        <input type="number" placeholder="예: 30101" required>
+                    </div>
+                    <div class="input-group">
+                        <label>비밀번호</label>
+                        <input type="password" placeholder="비밀번호 설정" required>
+                    </div>
+                    <button type="submit" class="btn primary full-width">가입 신청하기</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Write Modal -->
+    <div id="write-modal" class="modal">
+        <div class="modal-content glass-panel">
+            <span class="close-modal">&times;</span>
+            <h3 class="modal-title">글쓰기</h3>
+            <form id="write-form">
+                <input type="text" placeholder="제목" class="modal-input" required>
+                <textarea placeholder="무슨 생각을 하고 있나요?" class="modal-textarea" required></textarea>
+                <button type="submit" class="btn primary full-width">등록</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="toast hidden">
+        <div class="toast-icon">
+            <!-- SVG: Check -->
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+        </div>
+        <span id="toast-message">실행되었습니다.</span>
+    </div>
+
+    <footer class="glass-footer">
+        <p>© 2026 Class 3-1. Light & Fast.</p>
+    </footer>
+</body>
+
+</html>
