@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>우리반 홈페이지 | Class Homepage</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-animation"></div>
+    
+    <nav class="glass-nav">
+        <div class="logo">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Class 3-1</span>
+        </div>
+        <ul class="nav-links">
+            <li class="active" data-target="home">홈</li>
+            <li data-target="gallery">갤러리</li>
+            <li data-target="community">커뮤니티</li>
+            <li data-target="signup" class="btn-signup">가입하기</li>
+        </ul>
+        <div class="mobile-menu-btn">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </nav>
+
+    <main id="app-container">
+        <!-- Home Section -->
+        <section id="home" class="page active">
+            <div class="hero-content">
+                <h1 class="animate-fade-up">우리들의 특별한<br><span class="highlight">추억 저장소</span></h1>
+                <p class="animate-fade-up delay-1">3학년 1반 친구들을 위한 공간입니다.<br>함께 소통하고 추억을 나누어보세요.</p>
+                <div class="hero-btns animate-fade-up delay-2">
+                    <button class="btn primary" onclick="navigateTo('community')">이야기 나누기</button>
+                    <button class="btn secondary" onclick="navigateTo('gallery')">사진 보러가기</button>
+                </div>
+            </div>
+            <div class="hero-cards animate-fade-up delay-3">
+                <div class="glass-card float-card">
+                    <i class="fa-solid fa-calendar-check"></i>
+                    <h3>오늘의 급식</h3>
+                    <p>맛있는 점심 메뉴 확인하기</p>
+                </div>
+                <div class="glass-card float-card">
+                    <i class="fa-solid fa-bell"></i>
+                    <h3>알림장</h3>
+                    <p>숙제와 준비물 잊지 말기</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="page">
+            <div class="section-header">
+                <h2>학급 갤러리</h2>
+                <p>우리들의 즐거운 순간들</p>
+            </div>
+            <div class="gallery-grid" id="gallery-container">
+                <!-- Gallery items will be loaded dynamically -->
+                <div class="gallery-loader">
+                    <div class="spinner"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community Section -->
+        <section id="community" class="page">
+            <div class="section-header">
+                <h2>커뮤니티</h2>
+                <button class="btn small" onclick="openWriteModal()"><i class="fa-solid fa-pen"></i> 글쓰기</button>
+            </div>
+            <div class="community-list glass-panel" id="community-container">
+                <!-- Community items will be loaded dynamically -->
+                <div class="empty-state">
+                    <i class="fa-regular fa-comments"></i>
+                    <p>게시글을 불러오는 중입니다...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Signup Section -->
+        <section id="signup" class="page">
+            <div class="signup-container glass-panel">
+                <h2>반가워요! 👋</h2>
+                <p>3학년 1반 친구라면 누구나 가입할 수 있어요.</p>
+                <form id="signup-form">
+                    <div class="input-group">
+                        <label>이름</label>
+                        <input type="text" placeholder="본명을 입력해주세요" required>
+                    </div>
+                    <div class="input-group">
+                        <label>학번</label>
+                        <input type="number" placeholder="예: 30101" required>
+                    </div>
+                    <div class="input-group">
+                        <label>비밀번호</label>
+                        <input type="password" placeholder="비밀번호 설정" required>
+                    </div>
+                    <button type="submit" class="btn primary full-width">가입 신청하기</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Write Modal -->
+    <div id="write-modal" class="modal">
+        <div class="modal-content glass-panel">
+            <span class="close-modal">&times;</span>
+            <h3>글쓰기</h3>
+            <form id="write-form">
+                <input type="text" placeholder="제목" class="modal-input" required>
+                <textarea placeholder="무슨 생각을 하고 있나요?" class="modal-textarea" required></textarea>
+                <button type="submit" class="btn primary">등록</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="toast hidden">
+        <i class="fa-solid fa-check-circle"></i>
+        <span id="toast-message">실행되었습니다.</span>
+    </div>
+
+    <footer class="glass-footer">
+        <p>© 2026 Class 3-1 Homepage. All rights reserved.</p>
+        <div class="tech-stack">
+            <span>Powered by GitHub Pages & Notion</span>
+        </div>
+    </footer>
+
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
