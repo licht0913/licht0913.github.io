@@ -1,1 +1,0 @@
-const CONFIG = { API_URL: "https://v1.nocodeapi.com/licht0913/notion/04e00883c3eb865a731a56dc23ca11ecd17649f2029dc4b165025958437389cb/databasename" }; const DB_ID = "2edbd64592798007814afb2dec5cfd82";
