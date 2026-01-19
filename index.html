@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>우리반 홈페이지 | Class 3-1</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Poppins:wght@600;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="config.js" defer></script>
+    <script src="app.js" defer></script>
+</head>
+
+<body>
+    <div class="background-animation"></div>
+    <nav class="glass-nav">
+        <div class="logo">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                style="width:24px;height:24px;">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                <path d="M6 12v5c3 3 9 3 12 0v-5" />
+            </svg>
+            <span>Class 3-1</span>
+        </div>
+        <ul class="nav-links">
+            <li data-target="signup" class="btn-signup">가입/로그인</li>
+        </ul>
+    </nav>
+
+    <main id="app-container">
+        <!-- Home Section -->
+        <section id="home" class="page active">
+            <div class="hero-content">
+                <h1 class="animate-fade-up">우리들의 특별한<br><span class="highlight">추억 저장소</span></h1>
+                <p class="animate-fade-up delay-1">3학년 1반 친구들을 위한 공간입니다.</p>
+            </div>
+            <div class="hero-cards animate-fade-up delay-3">
+                <div class="glass-card" onclick="navigateTo('community')">
+                    <div class="card-icon-wrapper">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            style="width:30px;height:30px;">
+                            <path
+                                d="M17 8h2a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-2v4l-4-4H9a1.99 1.99 0 0 1-2-2v-6a2 2 0 0 1 2-2g3 0 0 1 3-3h3">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3>커뮤니티</h3>
+                    <p>우리반 이야기</p>
+                    <div id="noti-community" class="red-dot" style="display:none"></div>
+                </div>
+                <div class="glass-card" onclick="navigateTo('gallery')">
+                    <div class="card-icon-wrapper">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            style="width:30px;height:30px;">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                            <polyline points="21 15 16 10 5 21"></polyline>
+                        </svg>
+                    </div>
+                    <h3>학급 갤러리</h3>
+                    <p>추억 사진첩</p>
+                    <div id="noti-gallery" class="red-dot" style="display:none"></div>
+                </div>
+                <div class="glass-card" onclick="openLunchModal()">
+                    <div class="card-icon-wrapper">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            style="width:30px;height:30px;">
+                            <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                            <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                            <line x1="6" y1="1" x2="6" y2="4"></line>
+                            <line x1="10" y1="1" x2="10" y2="4"></line>
+                            <line x1="14" y1="1" x2="14" y2="4"></line>
+                        </svg>
+                    </div>
+                    <h3>오늘의 급식</h3>
+                    <p>맛있는 점심 메뉴</p>
+                </div>
+                <div class="glass-card" onclick="navigateTo('notice')">
+                    <div class="card-icon-wrapper">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            style="width:30px;height:30px;">
+                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                        </svg>
+                    </div>
+                    <h3>알림장</h3>
+                    <p>숙제와 공지사항</p>
+                    <div id="noti-notice" class="red-dot" style="display:none"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="page">
+            <div class="section-header">
+                <h2>학급 갤러리</h2>
+                <button id="btn-gallery-write" class="btn primary" style="display:none">사진 올리기</button>
+            </div>
+            <div class="gallery-grid blur-target" id="gallery-container"></div>
+            <div class="lock-msg" style="display:none; text-align:center; padding:50px;">
+                <div class="locked-dall">회원만 열람가능</div>
+            </div>
+        </section>
+
+        <!-- Community Section -->
+        <section id="community" class="page">
+            <div class="section-header">
+                <h2>커뮤니티</h2>
+                <button id="btn-write" class="btn primary" style="display:none">글쓰기</button>
+            </div>
+            <div class="community-list glass-panel blur-target" id="community-container"></div>
+            <div class="lock-msg" style="display:none; text-align:center; padding:50px;">
+                <div class="locked-dall">로그인 후 확인하세요</div>
+            </div>
+        </section>
+
+        <!-- Notice Section -->
+        <section id="notice" class="page">
+            <div class="section-header">
+                <h2>알림장</h2>
+                <button id="btn-notice-write" class="btn primary" style="display:none">알림 쓰기</button>
+            </div>
+            <div class="notice-container glass-panel blur-target" id="notice-container"></div>
+            <div class="lock-msg" style="display:none; text-align:center; padding:50px;">
+                <div class="locked-dall">승인 후 열람가능</div>
+            </div>
+        </section>
+
+        <!-- Signup Section -->
+        <section id="signup" class="page">
+            <div class="signup-container glass-panel">
+                <div id="login-view">
+                    <h2>로그인</h2>
+                    <form id="login-form">
+                        <div class="input-group"><label>학번</label><input type="number" id="login-id"
+                                placeholder="예: 30101" required></div>
+                        <div class="input-group"><label>비밀번호</label><input type="password" id="login-pw"
+                                placeholder="비밀번호" required></div>
+                        <button type="submit" class="btn primary full-width">로그인</button>
+                    </form>
+                    <p style="margin-top:15px; text-align:center;">계정이 없나요? <a href="#"
+                            onclick="toggleAuth(true)">회원가입</a></p>
+                </div>
+                <div id="signup-view" style="display:none">
+                    <h2>회원가입 신청</h2>
+                    <form id="signup-form">
+                        <div class="input-group"><label>이름</label><input type="text" id="signup-name"
+                                placeholder="본명 입력" required></div>
+                        <div class="input-group"><label>학번</label><input type="number" id="signup-id"
+                                placeholder="4자리 숫자" required></div>
+                        <div class="input-group"><label>비밀번호</label><input type="password" id="signup-pw"
+                                placeholder="8자 이상, 특수문자 포함" required></div>
+                        <button type="submit" class="btn primary full-width">가입 신청</button>
+                    </form>
+                    <p style="margin-top:15px; text-align:center;">이미 계정이 있나요? <a href="#"
+                            onclick="toggleAuth(false)">로그인</a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modals -->
+    <div id="write-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>이야기 쓰기</h3>
+            <form id="write-form">
+                <input type="text" id="post-title" placeholder="제목" class="modal-input" required>
+                <div id="title-byte" style="font-size:0.8rem; color:#888; text-align:right;">0/30</div>
+                <textarea id="post-content" placeholder="내용" class="modal-textarea" required></textarea>
+                <button type="submit" class="btn primary full-width">등록</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="gallery-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>사진 올리기</h3>
+            <form id="gallery-form">
+                <input type="text" id="gallery-title" placeholder="사진 제목" class="modal-input" required>
+                <div id="gallery-byte" style="font-size:0.8rem; color:#888; text-align:right;">0/30</div>
+                <input type="file" id="gallery-file" accept="image/*" class="modal-input" required>
+                <button type="submit" class="btn primary full-width">사진 등록</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="notice-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>알림장 쓰기</h3>
+            <form id="notice-form">
+                <textarea id="notice-content" placeholder="공지 내용" class="modal-textarea" required></textarea>
+                <input type="file" id="notice-file" accept="image/*" class="modal-input">
+                <button type="submit" class="btn primary full-width">알림 등록</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="lunch-modal" class="modal">
+        <div class="modal-content" style="text-align:center;">
+            <span class="close-modal">&times;</span>
+            <h3>🍱 오늘의 급식</h3>
+            <div id="lunch-content" style="padding:20px;">불러오는 중...</div>
+            <button class="btn secondary" onclick="closeLunchModal()">닫기</button>
+        </div>
+    </div>
+
+    <footer class="glass-footer">
+        <p>© 2026 Class 3-1 Homepage.</p>
+    </footer>
+</body>
+
+</html>
